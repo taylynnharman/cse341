@@ -1,16 +1,10 @@
-// Import the express module
 const express = require("express");
-
-// Create an instance of an Express application
 const app = express();
+const port = process.env.PORT || 3000;
 
-// Define a route that returns the name of someone you know
-app.get("/", (req, res) => {
-  res.send("Hello, my friend Lydia!");
-});
+app.use("/", require("./routes"));
 
 // Start the server on port 3000
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(3000, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
